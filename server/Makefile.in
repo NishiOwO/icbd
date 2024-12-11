@@ -1,0 +1,69 @@
+#	Copyright (c) 2000 Michel Hoche-Mong, under the GPL.
+
+LIBS = ../lmurgil.a
+
+CC = @CC@
+CFLAGS = @CFLAGS@
+CPPFLAGS = -I. -I..
+
+## DO NOT UNCOMMENT THIS on SunOS 4.x --  resolver library is busted
+## bad and coredumps in gethostbyaddr() on really long hostnames
+#OTHERLIBS = -lresolv
+
+OBJ = \
+	access.o \
+	dispatch.o \
+	globals.o \
+	groups.o \
+	icbutil.o \
+	ipcf.o \
+	lookup.o \
+	main.o \
+	mdb.o \
+	msgs.o \
+	namelist.o \
+	s_admin.o \
+	s_auto.o \
+	s_beep.o \
+	s_group.o \
+	s_info.o \
+	s_motd.o \
+	s_news.o \
+	s_person.o \
+	s_shuttime.o \
+	s_user.o \
+	s_version.o \
+	s_who.o \
+	send.o \
+	strlist.o \
+	strutil.o \
+	unix.o \
+	users.o \
+	wildmat.o
+
+default: icbd
+
+icbd: $(OBJ) $(LIBS)
+	@CC@ @CFLAGS@ -o icbd $(OBJ) $(LIBS) @LIBS@
+
+lint:
+	@LINT@ $(SRC)
+
+cxref:
+	@CXREF@ -c $(CFLAGS) $(SRC)
+
+tags:
+	@CTAGS@ -w *.[ch]
+
+clean:
+	@RM@ -f *.o icbd core tags
+
+depend:
+	@MAKEDEPEND@ $(DEPENDFLAGS) $(SRC)
+
+.SUFFIXES:
+.SUFFIXES: .c .o
+.c.o:
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+# DO NOT DELETE THIS LINE -- makedepend uses it.

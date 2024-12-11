@@ -1,0 +1,15 @@
+jon's TODO List:
+
+    1) Poke keithr until he get me his server-side notify code modifications
+
+Hoche's TODO List:
+
+    1) go through all the "configure" ifdefs in config.h.in and add the
+	appropriate thing to the code
+    2) add suffix rules to the makefiles
+    3) fix the dist target
+    4) add an install-sh
+    5) get rid of obsolete utilities in support
+    6) get rid of unused/obsolete #ifdefs, via ifnames
+    7) add extra configure parameter of FDSETSIZE.
+

@@ -1,0 +1,55 @@
+#	Copyright (c) 2000,  Michel Hoche-Mong, under the GPL.
+#
+#	Makefile for lmurgil.a
+#
+
+LIBDIR		= ..
+
+CC	= @CC@
+CFLAGS  = @CFLAGS@
+CPPFLAGS = -I. -I..
+
+OBJ = \
+	contoport.o \
+	discuser.o \
+	getrname.o \
+	globals.o \
+	ignore.o \
+	makeport.o \
+	newconnect.o \
+	packetsend.o \
+	readpacket.o \
+	sendpacket.o \
+	serverserve.o
+
+all: $(LIBDIR)/lmurgil.a
+
+$(LIBDIR)/lmurgil.a: $(OBJ)
+	@RM@ -f $(LIBDIR)/lmurgil.a
+	@AR@ -q $(LIBDIR)/lmurgil.a $(OBJ)
+	@RANLIB@ $(LIBDIR)/lmurgil.a
+
+install: $(LIBDIR)/lmurgil.a
+
+tags:
+	@CTAGS@ -w *[ch]
+
+lint:
+	@LINT@ $(LFLAGS) $(SRC)
+
+cxref:
+	@CXREF@ -c @CFLAGS@ $(SRC)
+
+clean:
+	@RM@ -f *.o lmurgil.a core tags
+
+depend:
+	@MAKEDEPEND@ $(DEPENDFLAGS) $(SRC)
+
+
+.SUFFIXES:
+.SUFFIXES: .c .o
+.c.o:
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+# DO NOT DELETE THIS LINE -- makedepend uses it.

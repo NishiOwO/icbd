@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/bin/env perl
 
 ###
 ## @(#) setdb		falcon@icb.net
@@ -12,4 +12,4 @@ dbmopen( %DB, "./icbdb", 0666);
 ($var, $val) = (@ARGV);
 print "VAR[$var] VAL[$val]\n";
 $DB{$var} = $val;
-dbmclose( DB);
+dbmclose( %DB);

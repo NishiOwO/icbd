@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/bin/env perl
 
 ###
 ## @(#) dbimport		falcon@icb.net
@@ -7,7 +7,7 @@
 ## it's not hammered on since it's only been used once
 ###
 
-dbmopen (DB, "./icbdb", 0666);
+dbmopen (%DB, "./icbdb", 0666);
 
 while ( $line = <STDIN> )
 {
@@ -18,4 +18,4 @@ while ( $line = <STDIN> )
 	}
 }
 
-dbmclose( DB);
+dbmclose( %DB);

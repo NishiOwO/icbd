@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/bin/env perl
 
 ###
 ## @(#) deldb.pl		jon@luini.com		2/1/98
@@ -72,4 +72,4 @@ foreach $nick (@ARGV)
     print "$nick deleted.\n";
 }
 
-dbmclose( DB);
+dbmclose( %DB);

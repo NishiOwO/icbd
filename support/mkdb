@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/bin/env perl
 
 ###
 ## @(#) mkdb		falcon@icb.net
@@ -20,4 +20,4 @@ $DB{ "server.text"} = $TEXT;
 $DB{ "server.nummsg"} = "20";
 $DB{ "server.www"} = "http://www.icb.net/";
 
-dbmclose( DB);
+dbmclose( %DB);

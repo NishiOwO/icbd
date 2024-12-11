@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/bin/env perl
 
 ###
 ## @(#) findb.pl		jon@luini.com		2/1/98
@@ -77,4 +77,4 @@ foreach $nick (@ARGV)
     print "\n";
 }
 
-dbmclose( DB);
+dbmclose( %DB);

@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/bin/env perl
 
 ###
 ## @(#) countdb		falcon@icb.net
@@ -19,4 +19,4 @@ while ( ($key, $val) = each (%DB) )
 
 print "$num nicknames listed.\n";
 
-dbmclose (DB);
+dbmclose (%DB);

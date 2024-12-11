@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/bin/env perl
 
 ###
 ## @(#) nickprune.pl		jon@luini.com		11/23/98
@@ -111,4 +111,4 @@ while ( ($key, $val) = each (%DB) )
     }
 }
 
-dbmclose (DB);
+dbmclose (%DB);

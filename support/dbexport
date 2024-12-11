@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/bin/env perl
 
 ###
 ## @(#) dbexport		falcon@icb.net
@@ -10,10 +10,10 @@
 ## copy them over.
 ###
 
-dbmopen (DB, "./icbdb", 0666);
+dbmopen (%DB, "./icbdb", 0666);
 
 while (($key,$val) = each %DB) {
     print $key, '|', $val, "\n";
 }
 
-dbmclose( DB);
+dbmclose( %DB);

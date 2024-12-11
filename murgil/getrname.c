@@ -68,7 +68,7 @@ char *getremotename(int socketfd)
     static char rname[256];
     struct hostent *host;
     struct sockaddr_in rs;
-    size_t rs_size = sizeof(rs);
+    int rs_size = sizeof(rs);
     char *inet_ntoa();
     char tbuf[256];
 
@@ -125,7 +125,7 @@ char *getlocalname(int socketfd)
     static char rname[256];
     struct hostent *host;
     struct sockaddr_in rs;
-    size_t rs_size = sizeof(rs);
+    int rs_size = sizeof(rs);
     char *inet_ntoa();
     char tbuf[256];
 
